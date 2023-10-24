@@ -47,15 +47,15 @@ BankAccount operator|(BankAccount& bankAccount1, BankAccount& bankAccount2){
     return mergedAccount;
 }
 
-bool operator>(BankAccount& account1, BankAccount& account2){
+bool operator>(const BankAccount& account1, const BankAccount& account2){
     return (account1.amount > account2.amount);
 }
 
-bool operator<(BankAccount& account1, BankAccount& account2){
+bool operator<(const BankAccount& account1, const BankAccount& account2){
     return (account1.amount < account2.amount);
 }
 
-bool operator==(BankAccount& account1, BankAccount& account2){
+bool operator==(const BankAccount& account1, const BankAccount& account2){
     return (account1.iban == account2.iban) && (account1.amount == account2.amount);
 }
 
