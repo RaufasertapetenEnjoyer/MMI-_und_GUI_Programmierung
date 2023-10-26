@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Player.h"
+#include "PlayerDatabase.h"
+
 using namespace std;
 
 int main(){
@@ -23,4 +25,37 @@ int main(){
 
     delete p1;
     delete p2;
+
+    cout << endl;
+    cout << endl;
+    cout << "Tak 2.2"<<endl;
+    cout << endl;
+
+    Player player1 = *new Player("Michael", 1);
+    Player player2 = *new Player("Thomas", 2, "unfriendly");
+    Player player3 = *new Player("Jan", 3, "unlucky, friendly");
+    Player player4 = *new Player("Simon", 4, "lucky");
+
+    auto* playerDatabase = new PlayerDatabase();
+    /*
+    playerDatabase->addPlayer(player1);
+    playerDatabase->addPlayer(player2);
+    playerDatabase->addPlayer(player3);
+
+    cout << "The following players are in the List: {" << endl;
+    cout << *playerDatabase << "}" << endl;
+
+    cout << "There are " << playerDatabase->countPlayersInDatabase() << " players saved in the Database." << endl;
+    playerDatabase->clearDatabase();
+    cout << "There are " << playerDatabase->countPlayersInDatabase() << " players saved in the Database after cleaning." << endl;
+
+    playerDatabase->addPlayer(player4);
+
+    cout << "Player on position 0 is: " << endl;
+    cout << playerDatabase[0] << endl;*/
+    playerDatabase->addPlayer(player1);
+
+    delete playerDatabase;
+
+    return 0;
 }

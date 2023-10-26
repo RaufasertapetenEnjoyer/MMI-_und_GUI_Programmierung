@@ -18,20 +18,20 @@ public:
     ~Player();
 
     void setName(string name);
-    string getName();
+    string getName() const;
 
     void setLevel(int level);
-    int getLevel();
+    int getLevel() const;
 
     void setOptionalNotice(string optionalNotice);
-    std::string getOptionalNotice();
+    std::string getOptionalNotice() const;
 
     static Player* makeNewbie(string name);
 
-    friend ostream& operator<<(ostream& os, Player& player);
+    friend ostream& operator<<(ostream& os, const Player& player);
 };
 
-ostream& operator<<(ostream& os, Player& player);
+ostream& operator<<(ostream& os, const Player& player);
 
 
 #endif //MMI_UND_GUI_PLAYER_H

@@ -19,7 +19,7 @@ void Player::setName(std::string name) {
     m_name = name;
 }
 
-std::string Player::getName() {
+std::string Player::getName() const{
     return m_name;
 }
 
@@ -31,7 +31,7 @@ void Player::setLevel(int level) {
     }
 }
 
-int Player::getLevel() {
+int Player::getLevel() const{
     return m_level;
 }
 
@@ -44,7 +44,7 @@ void Player::setOptionalNotice(std::string optionalNotice) {
 
 }
 
-std::string Player::getOptionalNotice() {
+std::string Player::getOptionalNotice() const{
     return m_optionalNotice;
 }
 
@@ -52,7 +52,7 @@ Player* Player::makeNewbie(std::string name) {
     return new Player(name, 1);
 }
 
-std::ostream& operator<<(std::ostream& os, Player& player){
+std::ostream& operator<<(std::ostream& os, const Player& player){
     os << player.m_name << endl;
     os << "Level: " << player.m_level << endl;
     os << "optional notice: " << (player.m_optionalNotice.empty() ? "none" : player.m_optionalNotice) << endl;
