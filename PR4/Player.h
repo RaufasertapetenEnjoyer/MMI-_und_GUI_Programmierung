@@ -1,7 +1,3 @@
-//
-// Created by jena- on 26.10.2023.
-//
-
 #ifndef MMI_UND_GUI_PLAYER_H
 #define MMI_UND_GUI_PLAYER_H
 #include <iostream>
@@ -23,7 +19,7 @@ public:
     void setLevel(int level);
     int getLevel() const;
 
-    void setOptionalNotice(string optionalNotice);
+    void setOptionalNotice(const string& optionalNotice);
     std::string getOptionalNotice() const;
 
     static Player* makeNewbie(string name);

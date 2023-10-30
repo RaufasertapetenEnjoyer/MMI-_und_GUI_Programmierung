@@ -1,7 +1,3 @@
-//
-// Created by jena- on 26.10.2023.
-//
-
 #include "Player.h"
 
 Player::Player(std::string name, int level, std::string optionalNotice) {
@@ -35,7 +31,7 @@ int Player::getLevel() const{
     return m_level;
 }
 
-void Player::setOptionalNotice(std::string optionalNotice) {
+void Player::setOptionalNotice(const std::string& optionalNotice) {
     if(m_optionalNotice.empty()){
         m_optionalNotice = optionalNotice;
     }else{

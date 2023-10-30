@@ -1,7 +1,3 @@
-//
-// Created by jena- on 26.10.2023.
-//
-
 #ifndef MMI_UND_GUI_PLAYERDATABASE_H
 #define MMI_UND_GUI_PLAYERDATABASE_H
 #include <iostream>
@@ -15,14 +11,14 @@ public:
     PlayerDatabase();
     ~PlayerDatabase();
 
-    void addPlayer(Player& playerToAdd);
+    void addPlayer(const Player& playerToAdd) const;
 
-    void clearDatabase();
+    void clearDatabase() const;
 
-    size_t countPlayersInDatabase();
+    size_t countPlayersInDatabase() const;
 
-    Player& operator[](int pos) const;
-    Player& operator[](int pos);
+    const Player& operator[](int pos) const;
+    Player& operator[](const int& pos);
 
     friend ostream& operator<<(ostream& os, PlayerDatabase& player);
 };

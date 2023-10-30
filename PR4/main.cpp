@@ -1,6 +1,10 @@
 #include <iostream>
 #include "Player.h"
 #include "PlayerDatabase.h"
+#include "PlayerDataBaseWithPointers.h"
+
+// (MMI_und_GUI PR4/Player.cpp PR4/main.cpp PR4/PlayerDatabase.cpp PR4/PlayerDatabase.h PR4/PlayerDataBaseWithPointers.cpp PR4/PlayerDataBaseWithPointers.h)
+// in cmakelist eintragen um auszuführen
 
 using namespace std;
 
@@ -26,36 +30,46 @@ int main(){
     delete p1;
     delete p2;
 
-    cout << endl;
-    cout << endl;
-    cout << "Tak 2.2"<<endl;
-    cout << endl;
+    cout << endl << endl << "Task 2.2"<< endl << endl;
 
-    Player player1 = *new Player("Michael", 1);
-    Player player2 = *new Player("Thomas", 2, "unfriendly");
-    Player player3 = *new Player("Jan", 3, "unlucky, friendly");
-    Player player4 = *new Player("Simon", 4, "lucky");
+    Player* player1 = new Player("Olaf", 1);
+    Player* player2 = new Player("Albrecht", 2, "unfriendly");
+    Player* player3 = new Player("Hans", 3, "unlucky, friendly");
+    Player* player4 = new Player("Simon", 4, "lucky");
 
     auto* playerDatabase = new PlayerDatabase();
-    /*
-    playerDatabase->addPlayer(player1);
-    playerDatabase->addPlayer(player2);
-    playerDatabase->addPlayer(player3);
+    //auto* playerDatabase = new PlayerDataBaseWithPointers();
 
-    cout << "The following players are in the List: {" << endl;
+//    playerDatabase->addPlayer(player1);
+//    playerDatabase->addPlayer(player2);
+//    playerDatabase->addPlayer(player3);
+
+    playerDatabase->addPlayer(*player1);
+    playerDatabase->addPlayer(*player2);
+    playerDatabase->addPlayer(*player3);
+
+    cout << endl <<  "The following players are in the List: {" << endl;
     cout << *playerDatabase << "}" << endl;
 
-    cout << "There are " << playerDatabase->countPlayersInDatabase() << " players saved in the Database." << endl;
+    cout << endl << "There are " << playerDatabase->countPlayersInDatabase() << " players saved in the Database." << endl;
     playerDatabase->clearDatabase();
-    cout << "There are " << playerDatabase->countPlayersInDatabase() << " players saved in the Database after cleaning." << endl;
+    cout << "There are " << playerDatabase->countPlayersInDatabase() << " players saved in the Database after cleaning." << endl << endl;
 
-    playerDatabase->addPlayer(player4);
+//    playerDatabase->addPlayer(player4);
+
+    playerDatabase->addPlayer(*player4);
 
     cout << "Player on position 0 is: " << endl;
-    cout << playerDatabase[0] << endl;*/
-    playerDatabase->addPlayer(player1);
+    cout << playerDatabase[0] << endl;
+//    playerDatabase->addPlayer(player1);
+
+    playerDatabase->addPlayer(*player1);
 
     delete playerDatabase;
+    delete player1;
+    delete player2;
+    delete player3;
+    delete player4;
 
     return 0;
 }
