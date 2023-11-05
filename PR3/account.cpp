@@ -60,10 +60,10 @@ bool operator==(const BankAccount& account1, const BankAccount& account2){
 }
 
 void operator*=(BankAccount& payee, const double interest){
-    payee.amount *= interest;
+    payee.amount += (interest / 100) * payee.amount;
 }
 
-BankAccount& getMax(BankAccount& account1, BankAccount& account2){
+const BankAccount& getMax(const BankAccount& account1, const BankAccount& account2){
     if(account1 > account2){
         return account1;
     } else{

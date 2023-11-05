@@ -4,9 +4,11 @@
 #include <vector>
 #include "Player.h"
 
+using namespace std;
+
 class PlayerDatabase {
 private:
-    std::vector<Player>* m_playerDatabase;
+    vector<Player>* m_playerDatabase;
 public:
     PlayerDatabase();
     ~PlayerDatabase();
@@ -17,12 +19,12 @@ public:
 
     size_t countPlayersInDatabase() const;
 
-    const Player& operator[](int pos) const;
+    const Player& operator[](const int& pos) const;
     Player& operator[](const int& pos);
 
-    friend ostream& operator<<(ostream& os, PlayerDatabase& player);
+    friend ostream& operator<<(ostream& os, const PlayerDatabase& player);
 };
 
-ostream& operator<<(ostream& os, PlayerDatabase& playerDatabase);
+ostream& operator<<(ostream& os, const PlayerDatabase& playerDatabase);
 
 #endif //MMI_UND_GUI_PLAYERDATABASE_H

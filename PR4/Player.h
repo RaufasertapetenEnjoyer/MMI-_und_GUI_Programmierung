@@ -7,20 +7,20 @@ class Player {
 private:
     string m_name;
     int m_level;
-    std::string m_optionalNotice;
+    string m_optionalNotice;
 
 public:
     Player(string name, int level, string optionalNotice = "");
     ~Player();
 
-    void setName(string name);
+    void setName(const string& name);
     string getName() const;
 
     void setLevel(int level);
     int getLevel() const;
 
     void setOptionalNotice(const string& optionalNotice);
-    std::string getOptionalNotice() const;
+    string getOptionalNotice() const;
 
     static Player* makeNewbie(string name);
 
