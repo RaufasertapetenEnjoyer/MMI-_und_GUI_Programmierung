@@ -4,7 +4,7 @@
 #include "LivingThing.h"
 #include "NPC.h"
 
-class Warrior : public LivingThing{
+class Warrior : virtual public LivingThing{
 private:
     int m_strength;
 

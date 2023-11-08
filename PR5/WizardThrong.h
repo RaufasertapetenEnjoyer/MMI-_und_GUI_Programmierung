@@ -14,7 +14,11 @@ public:
 
     void addWizard(Wizard* wizard);
 
+    vector<Wizard*>* getGroup() const;
+
     friend ostream& operator<<(ostream& os, const WizardThrong& group);
+
+    Wizard operator|(WizardThrong& wizardThrong);
 };
 
 ostream& operator<<(ostream& os, const WizardThrong& group);

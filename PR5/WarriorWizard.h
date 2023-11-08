@@ -4,9 +4,10 @@
 #include "Warrior.h"
 #include "Wizard.h"
 
-class WarriorWizard : virtual public Wizard, virtual public Warrior{
-    //TODO virtuelle Basisklasse entweder hier oder dann bei Warrior und Wizard
-    //TODO <<operator
+class WarriorWizard : public Wizard, public Warrior{
+public:
+    WarriorWizard(string name, int energy, int strength, int mana);
+    virtual ~WarriorWizard();
 };
 
 

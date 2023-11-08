@@ -7,11 +7,13 @@ Warrior::~Warrior() {
 }
 
 int Warrior::getStrength() const {
-    return m_strength;
+    return this->isDead() ? 0 : m_strength;
 }
 
 void Warrior::setStrength(int strength) {
-    m_strength = strength;
+    if(!this->isDead()){
+        m_strength = strength;
+    }
 }
 
 ostream &operator<<(ostream &os, const Warrior &warrior) {
@@ -20,18 +22,22 @@ ostream &operator<<(ostream &os, const Warrior &warrior) {
 }
 
 void Warrior::operator>>(Warrior &warrior) {
-    if(warrior.isDead()){
-        cout << "Das ist unethisch, Du Tor!" << endl;
-    }else{
-        warrior.setEnergy(warrior.getEnergy() - this->getStrength());
+    if(!this->isDead()) {
+        if (warrior.isDead()) {
+            cout << "Das ist unethisch, Du Tor!" << endl;
+        } else {
+            warrior.setEnergy(warrior.getEnergy() - this->getStrength());
+        }
     }
 }
 
 void Warrior::operator>>(NPC &npc) {
-    if (!npc.isHittable()){
-        this->setEnergy(this->getEnergy() - 1);
-    }else{
-        npc.setEnergy(npc.getEnergy() - this->getStrength());
+    if(!this->isDead()) {
+        if (!npc.isHittable()) {
+            this->setEnergy(this->getEnergy() - 1);
+        } else {
+            npc.setEnergy(npc.getEnergy() - this->getStrength());
+        }
     }
 }
 
