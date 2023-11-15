@@ -1,9 +1,7 @@
 #include "MaxNVector.h"
-
+/*
 template<typename T, int n>
-MaxNVector<T, n>::MaxNVector() {
-    m_vector = new vector<T>;
-}
+MaxNVector<T, n>::MaxNVector() : m_vector(new vector<T>){}
 
 template<typename T, int n>
 MaxNVector<T, n>::~MaxNVector() {
@@ -13,7 +11,8 @@ MaxNVector<T, n>::~MaxNVector() {
 template<typename T, int n>
 void MaxNVector<T, n>::addElement(const T& elementToAdd) {
     int sum = 0;
-    for (const T& element : m_vector) {
+    for (int i = 0; i < m_vector->size(); i++) {
+        const T& element = (*m_vector)[i];
         if(element == elementToAdd){
             sum++;
         }
@@ -44,7 +43,7 @@ const T &MaxNVector<T, n>::operator[](int pos) const{
     if(pos > m_vector->size() || pos < 0){
         throw IndexOutOfBoundsException();
     }else{
-        return m_vector[pos];
+        return (*m_vector)[pos];
     }
 }
 
@@ -53,6 +52,7 @@ T &MaxNVector<T, n>::operator[](int pos) {
     if(pos > m_vector->size() || pos < 0){
         throw IndexOutOfBoundsException();
     }else{
-        return m_vector[pos];
+        return (*m_vector)[pos];
     }
 }
+*/
