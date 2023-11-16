@@ -7,6 +7,6 @@ int Stone::getEnergy() const{
 }
 
 ostream &operator<<(ostream &os, const Stone &stone) {
-    os << "Stone with the name " << stone.getName() << ", with " << stone.getEnergy() << " which is " << (stone.isHittable() ? "hittable" : "not hittable");
+    os << "Stone with the name " << stone.getName() << ", with " << stone.getEnergy() << " energy which is " << (stone.isHittable() ? "hittable" : "not hittable.") << endl;
     return os;
 }

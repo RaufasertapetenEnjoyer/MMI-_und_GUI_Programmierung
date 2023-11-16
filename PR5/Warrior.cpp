@@ -17,7 +17,7 @@ void Warrior::setStrength(int strength) {
 }
 
 ostream &operator<<(ostream &os, const Warrior &warrior) {
-    os << "Wizard called " << warrior.getName() << " with " << warrior.getEnergy() << " energy " << " and " << warrior.m_strength << " strength." << endl;
+    os << "Warrior called " << warrior.getName() << " with " << warrior.getEnergy() << " energy and " << warrior.m_strength << " strength." << endl;
     return os;
 }
 

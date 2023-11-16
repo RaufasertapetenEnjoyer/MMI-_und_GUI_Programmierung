@@ -42,6 +42,6 @@ Wizard WizardThrong::operator|(WizardThrong& wizardThrong) {
     return strongestWizard;
 }
 
-const vector<Wizard *> *WizardThrong::getGroup() const {
+vector<Wizard *> *WizardThrong::getGroup() const {
     return m_group;
 }

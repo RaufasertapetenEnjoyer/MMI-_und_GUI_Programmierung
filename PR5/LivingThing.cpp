@@ -1,10 +1,10 @@
 #include "LivingThing.h"
 
-LivingThing::LivingThing(string name, int energy): WorldThing(name), m_energy(energy) {}
+#include <utility>
 
-LivingThing::~LivingThing() {
+LivingThing::LivingThing(string name, int energy): WorldThing(std::move(name)), m_energy(energy) {}
 
-}
+LivingThing::~LivingThing() = default;
 
 int LivingThing::getEnergy() const {
     return m_energy;

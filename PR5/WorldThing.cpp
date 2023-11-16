@@ -2,6 +2,8 @@
 
 WorldThing::WorldThing(string name) : m_name(name){}
 
+WorldThing::~WorldThing()= default;
+
 string WorldThing::getName() const{
     return m_name;
 }
