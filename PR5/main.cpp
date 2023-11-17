@@ -73,15 +73,13 @@ int main() {
     wizardThrong1.addWizard(&wizard2);
 
     WizardThrong wizardThrong2;
-    wizardThrong1.addWizard(&wizard3);
-    wizardThrong1.addWizard(&wizard4);
+    wizardThrong2.addWizard(&wizard3);
+    wizardThrong2.addWizard(&wizard4);
 
     cout << "Merging throngs: " << endl;
 
     Wizard ultimateWizard = wizardThrong1 | wizardThrong2;
-    cout << wizard1;
-    cout << wizard2;
-    cout << wizard3;
-    cout << wizard4;
+    cout << wizardThrong1 << endl;
+    cout << wizardThrong2 << endl;
     cout << ultimateWizard << endl;
 }

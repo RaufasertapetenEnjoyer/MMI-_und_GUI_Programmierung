@@ -15,9 +15,8 @@ WizardThrong::~WizardThrong() {
 ostream &operator<<(ostream &os, const WizardThrong& group) {
     os << "Wizard Throng: " << endl;
     for (Wizard* wizard : *group.m_group){
-        os << *wizard << endl;
+        os << *wizard;
     }
-    os << endl;
     return os;
 }
 
