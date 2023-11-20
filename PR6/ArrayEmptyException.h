@@ -9,7 +9,8 @@
 using namespace std;
 
 class ArrayEmptyException : public exception{
-    virtual const char* what() const throw();
+public:
+    virtual const char* what() const noexcept;
 };
 
 

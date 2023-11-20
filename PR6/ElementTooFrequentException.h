@@ -7,7 +7,8 @@
 using namespace std;
 
 class ElementTooFrequentException : public exception {
-    virtual const char* what() const throw();
+public:
+    virtual const char* what() const noexcept;
 };
 
 
