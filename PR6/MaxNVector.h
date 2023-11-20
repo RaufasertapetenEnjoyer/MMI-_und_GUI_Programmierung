@@ -16,14 +16,40 @@ public:
     MaxNVector();
     ~MaxNVector();
 
+    /**
+     * Adds the given element at the end of the vector
+     * @param elementToAdd element that should be added to the vector
+     * @throw ElementTooFrequentException if the element already exists n times in the vector
+     */
     void addElement(const T& elementToAdd);
 
+    /**
+     * Remove an element at an certain index.
+     * @param index at which you want to delete an element
+     * @throw IndexOutOfBoundsException if the index is invalid
+     */
     void removeAt(size_t index);
 
+    /**
+     * Read an element at the position pos.
+     * @param pos position of the element you want to read.
+     * @return const T& element at position pos
+     * @throw IndexOutOfBoundsException if the index is invalid
+     */
     const T& operator[](int pos) const;
 
+    /**
+     * Read/ write an element at the position pos.
+     * @param pos position of the element you want to read or write.
+     * @return T& element at position pos
+     * @throw IndexOutOfBoundsException if the index is invalid
+     */
     T& operator[](int pos);
 
+    /**
+     * Return the number of currently stored elements in the vector.
+     * @return size_t number of elements in the vector.
+     */
     size_t getSize() const;
 };
 
