@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(std::string name, int level, std::string optionalNotice) {
+Player::Player(std::string name, int level, string optionalNotice) {
     m_name = name;
     m_level = level;
     m_optionalNotice = optionalNotice;
@@ -11,7 +11,7 @@ Player::~Player() {
     cout << "Player " << m_name << " was destroyed." << endl;
 }
 
-void Player::setName(std::string name) {
+void Player::setName(const string& name) {
     m_name = name;
 }
 
@@ -44,7 +44,7 @@ std::string Player::getOptionalNotice() const{
     return m_optionalNotice;
 }
 
-Player* Player::makeNewbie(std::string name) {
+Player* Player::makeNewbie(string name) {
     return new Player(name, 1);
 }
 

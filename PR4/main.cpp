@@ -30,7 +30,7 @@ int main(){
     delete p1;
     delete p2;
 
-    cout << endl << endl << "Task 2.2"<< endl << endl;
+    cout << endl << endl << "Task 4.2"<< endl << endl;
 
     Player* player1 = new Player("Olaf", 1);
     Player* player2 = new Player("Albrecht", 2, "unfriendly");
@@ -66,10 +66,26 @@ int main(){
     playerDatabase->addPlayer(*player1);
 
     delete playerDatabase;
-    delete player1;
-    delete player2;
-    delete player3;
-    delete player4;
+//    delete player1;
+//    delete player2;
+//    delete player3;
+//    delete player4;
+
+    const PlayerDatabase playerDatabase2;
+    playerDatabase2.addPlayer(*player1);
+    playerDatabase2.addPlayer(*player2);
+    playerDatabase2.addPlayer(*player3);
+    playerDatabase2.addPlayer(*player4);
+
+    cout << "There are " << playerDatabase2.countPlayersInDatabase() << " in the const database." << endl;
+
+    cout << playerDatabase2 << endl;
+
+    cout << "Player on position 2: " << endl << playerDatabase2[2] << endl;
+
+    playerDatabase2.clearDatabase();
+
+    cout << "There are " << playerDatabase2.countPlayersInDatabase() << " in the const database." << endl;
 
     return 0;
 }

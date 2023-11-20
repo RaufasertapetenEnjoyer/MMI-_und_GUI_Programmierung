@@ -28,12 +28,12 @@ Player &PlayerDatabase::operator[](const int& pos){
     return players[pos];
 }
 
-const Player &PlayerDatabase::operator[](int pos) const {
+const Player &PlayerDatabase::operator[](const int& pos) const {
     vector<Player>& players = *m_playerDatabase;
     return players[pos];
 }
 
-ostream &operator<<(ostream &os, PlayerDatabase &playerDatabase) {
+ostream &operator<<(ostream &os, const PlayerDatabase &playerDatabase) {
     for (const Player& player : *playerDatabase.m_playerDatabase) {
         os << player << endl;
     }
