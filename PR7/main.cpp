@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "shoppingcart.h"
 
 #include <QApplication>
 

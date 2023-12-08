@@ -10,10 +10,12 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    shoppingcart.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    shoppingcart.h
 
 FORMS += \
     mainwindow.ui
