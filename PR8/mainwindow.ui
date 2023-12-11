@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_5">
+    <item>
+     <widget class="QTabWidget" name="stockTab">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="Stammdaten">
+       <attribute name="title">
+        <string>Stammdaten</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <layout class="QFormLayout" name="formLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="nameLabel">
+            <property name="text">
+             <string>name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="nameEdit"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="genderLabel">
+            <property name="text">
+             <string>gender</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="genderCBox">
+            <item>
+             <property name="text">
+              <string>male</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>female</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>diverse</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="postalCodeLabel">
+            <property name="text">
+             <string>postal code</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="postalCodeEdit"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="Praeferenzen">
+       <attribute name="title">
+        <string>Präferenzen</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="marketsLabel">
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="marketesBox">
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <widget class="QRadioButton" name="emergencyMarketRB">
+               <property name="text">
+                <string>emergency</string>
+               </property>
+               <property name="autoExclusive">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="tecRB">
+               <property name="text">
+                <string>tec</string>
+               </property>
+               <property name="autoExclusive">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="asiaRB">
+               <property name="text">
+                <string>asia</string>
+               </property>
+               <property name="autoExclusive">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="europeRB">
+               <property name="text">
+                <string>europe</string>
+               </property>
+               <property name="autoExclusive">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="chinaRB">
+               <property name="text">
+                <string>china</string>
+               </property>
+               <property name="autoExclusive">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="Bezahlung">
+       <attribute name="title">
+        <string>Bezahlung</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QFormLayout" name="formLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="ibanLabel">
+            <property name="text">
+             <string>IBAN</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="ibanEdit"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="bankLabel">
+            <property name="text">
+             <string>bank</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="bankResultLabel">
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="paymentIntervallLabel">
+            <property name="text">
+             <string>paymaent intervall</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="paymentIntervallCBox">
+            <item>
+             <property name="text">
+              <string>per month</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>per year</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="priceLabel_2">
+        <property name="text">
+         <string>price per month</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Minimum</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="priceSumLabel">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="exitButton">
+        <property name="text">
+         <string>exit</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="orderLabel">
+        <property name="text">
+         <string>order papers</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>exitButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>260</x>
+     <y>520</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
