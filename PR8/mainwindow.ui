@@ -76,6 +76,13 @@
           <item row="2" column="1">
            <widget class="QLineEdit" name="postalCodeEdit"/>
           </item>
+          <item row="3" column="1">
+           <widget class="QLabel" name="postalCodeInvalidLabel">
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
        </layout>
@@ -90,7 +97,7 @@
           <item>
            <widget class="QLabel" name="marketsLabel">
             <property name="text">
-             <string>TextLabel</string>
+             <string>markets</string>
             </property>
            </widget>
           </item>
@@ -197,6 +204,9 @@
           </item>
           <item row="2" column="1">
            <widget class="QComboBox" name="paymentIntervallCBox">
+            <property name="currentText">
+             <string>per month</string>
+            </property>
             <item>
              <property name="text">
               <string>per month</string>
@@ -218,7 +228,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLabel" name="priceLabel_2">
+       <widget class="QLabel" name="priceLabel">
         <property name="text">
          <string>price per month</string>
         </property>
@@ -261,7 +271,7 @@
       <item>
        <widget class="QPushButton" name="orderLabel">
         <property name="text">
-         <string>order papers</string>
+         <string>order papers...</string>
         </property>
        </widget>
       </item>
