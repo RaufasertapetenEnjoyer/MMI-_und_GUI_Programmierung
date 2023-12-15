@@ -37,10 +37,27 @@ private slots:
 
     void on_ibanEdit_textChanged(const QString &arg1);
 
+    void on_genderCBox_activated(int index);
+
+    void on_nameEdit_textChanged(const QString &arg1);
+
+    void on_orderLabel_clicked();
+
 private:
     Ui::MainWindow *ui;
-    double m_sum;
     bool m_payPerYearActive;
+
+    double m_sum;
+    QString m_name;
+    QString m_gender;
+    QString m_postalCode;
+    QString m_IBAN;
+    QString m_bank;
+    QString m_paymentInterall;
+
+    bool m_validName;
+    bool m_genderTriggerdOnce;
+    bool m_paymentIntervallTriggerdOnce;
     bool m_validIBAN;
     bool m_validPostalCode;
 

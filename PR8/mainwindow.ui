@@ -21,7 +21,7 @@
     <item>
      <widget class="QTabWidget" name="stockTab">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Stammdaten">
        <attribute name="title">
@@ -48,23 +48,7 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="genderCBox">
-            <item>
-             <property name="text">
-              <string>male</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>female</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>diverse</string>
-             </property>
-            </item>
-           </widget>
+           <widget class="QComboBox" name="genderCBox"/>
           </item>
           <item row="2" column="0">
            <widget class="QLabel" name="postalCodeLabel">
@@ -204,19 +188,12 @@
           </item>
           <item row="2" column="1">
            <widget class="QComboBox" name="paymentIntervallCBox">
-            <property name="currentText">
-             <string>per month</string>
+            <property name="editable">
+             <bool>false</bool>
             </property>
-            <item>
-             <property name="text">
-              <string>per month</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>per year</string>
-             </property>
-            </item>
+            <property name="currentText">
+             <string/>
+            </property>
            </widget>
           </item>
          </layout>
