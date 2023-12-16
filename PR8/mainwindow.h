@@ -31,7 +31,7 @@ private slots:
 
     void on_chinaRB_clicked(bool checked);
 
-    void on_paymentIntervallCBox_textActivated(const QString &arg1);
+    void on_paymentIntervalCBox_textActivated(const QString &arg1);
 
     void on_postalCodeEdit_textChanged(const QString &arg1);
 
@@ -53,11 +53,11 @@ private:
     QString m_postalCode;
     QString m_IBAN;
     QString m_bank;
-    QString m_paymentInterall;
+    QString m_paymentInterval;
 
     bool m_validName;
     bool m_genderTriggerdOnce;
-    bool m_paymentIntervallTriggerdOnce;
+    bool m_paymentIntervalTriggerdOnce;
     bool m_validIBAN;
     bool m_validPostalCode;
 

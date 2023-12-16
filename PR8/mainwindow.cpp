@@ -12,13 +12,13 @@ MainWindow::MainWindow(QWidget *parent)
     m_sum = 0;
     m_payPerYearActive = false;
     m_validIBAN = false;
-    m_paymentIntervallTriggerdOnce = false;
+    m_paymentIntervalTriggerdOnce = false;
     m_validName = false;
     m_genderTriggerdOnce = false;
 
-    ui->paymentIntervallCBox->setPlaceholderText(" ");
-    ui->paymentIntervallCBox->addItem("per month");
-    ui->paymentIntervallCBox->addItem("per year");
+    ui->paymentIntervalCBox->setPlaceholderText(" ");
+    ui->paymentIntervalCBox->addItem("per month");
+    ui->paymentIntervalCBox->addItem("per year");
 
     ui->genderCBox->setPlaceholderText(" ");
     ui->genderCBox->addItem("male");
@@ -45,7 +45,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::updateGui(){
-    if(m_paymentIntervallTriggerdOnce == true){
+    if(m_paymentIntervalTriggerdOnce == true){
        ui->priceSumLabel->setText(QString::number(m_sum) + "-, Euro");
     }
 }
@@ -98,17 +98,18 @@ void MainWindow::on_chinaRB_clicked(bool checked)
     updateSum(checked);
 }
 
-void MainWindow::on_paymentIntervallCBox_textActivated(const QString &arg1)
+void MainWindow::on_paymentIntervalCBox_textActivated(const QString &arg1)
 {
-    m_paymentIntervallTriggerdOnce = true;
+    m_paymentIntervalTriggerdOnce = true;
     if(!m_payPerYearActive && arg1 == "per year"){
-        m_paymentInterall = "per year";
+        m_paymentInterval = "per year";
         m_sum *= (1 - 0.05);
     }else if(m_payPerYearActive && arg1 == "per month"){
-        m_paymentInterall = "per month";
+        m_paymentInterval = "per month";
         m_sum /= (1 - 0.05);
     }
     arg1 == "per year" ? m_payPerYearActive = true : m_payPerYearActive = false;
+    m_paymentInterval = arg1;
     updateGui();
 }
 
@@ -206,13 +207,13 @@ void MainWindow::on_orderLabel_clicked()
         && m_genderTriggerdOnce
         && m_validIBAN
         && m_validPostalCode
-        && m_paymentIntervallTriggerdOnce){
+        && m_paymentIntervalTriggerdOnce){
         qDebug() << " name:              " << m_name << "\n"
                  << "gender:            " << m_gender << "\n"
                  << "postal code:       " << m_postalCode << "\n"
                  << "IBAN:              " << m_IBAN << "\n"
                  << "bank:              " << m_bank << "\n"
-                 << "payment intervall: " << m_paymentInterall << "\n"
+                 << "payment interval:  " << m_paymentInterval << "\n"
                  << "sum of order:      " << QString::number(m_sum);
     }else{
         qDebug() << "Can't order papers, because the given data is invalid!";
