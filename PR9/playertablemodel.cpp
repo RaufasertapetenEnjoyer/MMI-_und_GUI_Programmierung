@@ -19,6 +19,7 @@ QVariant PlayerTableModel::headerData(int section, Qt::Orientation orientation, 
             return QString::number(section + 1);
         }
     }
+    return QVariant();
 }
 
 bool PlayerTableModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role)

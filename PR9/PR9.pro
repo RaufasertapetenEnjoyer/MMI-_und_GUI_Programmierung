@@ -9,6 +9,10 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dialogadd.cpp \
+    dialogdel.cpp \
+    dialogedit.cpp \
+    dialogstat.cpp \
     main.cpp \
     mainwindow.cpp \
     player.cpp \
@@ -18,6 +22,10 @@ SOURCES += \
     test.cpp
 
 HEADERS += \
+    dialogadd.h \
+    dialogdel.h \
+    dialogedit.h \
+    dialogstat.h \
     mainwindow.h \
     player.h \
     playerdatabase.h \
@@ -26,6 +34,10 @@ HEADERS += \
     test.h
 
 FORMS += \
+    dialogadd.ui \
+    dialogdel.ui \
+    dialogedit.ui \
+    dialogstat.ui \
     mainwindow.ui
 
 # Default rules for deployment.

@@ -2,9 +2,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "QList"
+
 #include "playertablemodel.h"
 #include "playertablemodelalt.h"
-#include "QList"
+#include "dialogadd.h"
+#include "dialogedit.h"
+#include "dialogdel.h"
+#include "dialogstat.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,6 +23,15 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+public slots:
+    void on_addButton_clicked();
+
+    void on_editButton_clicked();
+
+    void on_delButton_clicked();
+
+    void on_statButton_clicked();
 
 private:
     Ui::MainWindow *ui;
