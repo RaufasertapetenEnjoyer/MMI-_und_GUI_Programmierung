@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>mulleimer.png</file>
+        <file>mulleimerred.png</file>
+        <file>pencile.png</file>
+        <file>pencileyel.png</file>
+        <file>plus.png</file>
+        <file>statistik.png</file>
+    </qresource>
+</RCC>

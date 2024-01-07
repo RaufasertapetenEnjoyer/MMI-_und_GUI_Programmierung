@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "playerdatabase.h"
 #include "QList"
+#include "QAction"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -9,11 +10,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    m_model = new PlayerTableModelAlt(PlayerDatabase::instance()->players(), this);
+    m_model = new PlayerTableModel(PlayerDatabase::instance()->players(), this);
 
     ui->playerTableView->setModel(m_model);
 
-    qDebug(PlayerDatabase::instance()->players()->toList());
+//    qDebug() <<
+
 }
 
 MainWindow::~MainWindow()

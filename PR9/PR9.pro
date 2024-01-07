@@ -14,14 +14,16 @@ SOURCES += \
     player.cpp \
     playerdatabase.cpp \
     playertablemodel.cpp \
-    playertablemodelalt.cpp
+    playertablemodelalt.cpp \
+    test.cpp
 
 HEADERS += \
     mainwindow.h \
     player.h \
     playerdatabase.h \
     playertablemodel.h \
-    playertablemodelalt.h
+    playertablemodelalt.h \
+    test.h
 
 FORMS += \
     mainwindow.ui
@@ -30,3 +32,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc

@@ -1,6 +1,7 @@
 #include "playertablemodel.h"
+#include "QDebug"
 
-PlayerTableModel::PlayerTableModel(QObject *parent, QList<Player>* players)
+PlayerTableModel::PlayerTableModel(QList<Player>* players, QObject *parent)
     : QAbstractItemModel(parent), m_players(players)
 {
 }
@@ -58,31 +59,23 @@ int PlayerTableModel::columnCount(const QModelIndex &parent) const
     }
 }
 
-bool PlayerTableModel::hasChildren(const QModelIndex &parent) const
-{
-    // FIXME: Implement me!
-}
-
-bool PlayerTableModel::canFetchMore(const QModelIndex &parent) const
-{
-    // FIXME: Implement me!
-    return false;
-}
-
-void PlayerTableModel::fetchMore(const QModelIndex &parent)
-{
-    // FIXME: Implement me!
-}
-
 QVariant PlayerTableModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
         return QVariant();
 
-    // FIXME: Implement me!
+    if (role == Qt::DisplayRole) {
+        const Player& player = m_players->at(index.row());
+        switch(index.column()) {
+        case 0: return player.name();
+        case 1: return player.dateOfBirth();
+        case 2: return player.favouriteGenre();
+        }
+    }
     return QVariant();
 }
 
+/**
 bool PlayerTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (data(index, role) != value) {
@@ -98,7 +91,7 @@ Qt::ItemFlags PlayerTableModel::flags(const QModelIndex &index) const
     if (!index.isValid())
         return Qt::NoItemFlags;
 
-    return QAbstractItemModel::flags(index) | Qt::ItemIsEditable; // FIXME: Implement me!
+    return  Qt::ItemIsEditable;
 }
 
 bool PlayerTableModel::insertRows(int row, int count, const QModelIndex &parent)
@@ -112,7 +105,7 @@ bool PlayerTableModel::insertRows(int row, int count, const QModelIndex &parent)
 bool PlayerTableModel::insertColumns(int column, int count, const QModelIndex &parent)
 {
     beginInsertColumns(parent, column, column + count - 1);
-    // FIXME: Implement me!
+    qDebug() << "Forbidden";
     endInsertColumns();
     return true;
 }
@@ -128,7 +121,15 @@ bool PlayerTableModel::removeRows(int row, int count, const QModelIndex &parent)
 bool PlayerTableModel::removeColumns(int column, int count, const QModelIndex &parent)
 {
     beginRemoveColumns(parent, column, column + count - 1);
-    // FIXME: Implement me!
+    qDebug() << "Forbidden";
     endRemoveColumns();
     return true;
+}
+**/
+
+int PlayerTableModel::calculateAge(const QDate dateOfBirth)
+{
+    const QDate today = QDate::currentDate();
+    auto age = today.year() - dateOfBirth.year();
+    return today.month() >= dateOfBirth.month() && today.day() >= dateOfBirth.day() ? age : age - 1;
 }

@@ -3,6 +3,7 @@
 
 #include "QList"
 #include "player.h"
+#include "QDate"
 
 #include <QAbstractItemModel>
 
@@ -11,7 +12,7 @@ class PlayerTableModel : public QAbstractItemModel
     Q_OBJECT
 
 public:
-    explicit PlayerTableModel(QObject *parent = nullptr, QList<Player>* players = nullptr);
+    explicit PlayerTableModel(QList<Player>* players = nullptr, QObject *parent = nullptr);
 
     // Header:
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
@@ -26,14 +27,9 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    // Fetch data dynamically:
-    bool hasChildren(const QModelIndex &parent = QModelIndex()) const override;
-
-    bool canFetchMore(const QModelIndex &parent) const override;
-    void fetchMore(const QModelIndex &parent) override;
-
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
+    /**
     // Editable:
     bool setData(const QModelIndex &index, const QVariant &value,
                  int role = Qt::EditRole) override;
@@ -47,9 +43,12 @@ public:
     // Remove data:
     bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
     bool removeColumns(int column, int count, const QModelIndex &parent = QModelIndex()) override;
+*/
 
 private:
     QList<Player>* m_players;
+
+    int calculateAge(const QDate dateOfBirth);
 };
 
 #endif // PLAYERTABLEMODEL_H

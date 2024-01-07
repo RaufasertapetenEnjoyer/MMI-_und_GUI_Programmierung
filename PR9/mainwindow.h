@@ -21,6 +21,6 @@ public:
 private:
     Ui::MainWindow *ui;
 
-    PlayerTableModelAlt* m_model;
+    PlayerTableModel* m_model;
 };
 #endif // MAINWINDOW_H
