@@ -6,6 +6,7 @@
 
 #include "playertablemodel.h"
 #include "playertablemodelalt.h"
+#include "userlistmodel.h"
 #include "dialogadd.h"
 #include "dialogedit.h"
 #include "dialogdel.h"
@@ -23,6 +24,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void updateUI();
 
 public slots:
     void on_addButton_clicked();
@@ -36,6 +38,6 @@ public slots:
 private:
     Ui::MainWindow *ui;
 
-    PlayerTableModel* m_model;
+    UserListModel* m_model;
 };
 #endif // MAINWINDOW_H

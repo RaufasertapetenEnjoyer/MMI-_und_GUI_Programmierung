@@ -15,15 +15,15 @@ DialogAdd::~DialogAdd()
 
 QString DialogAdd::name() const
 {
-    return m_name;
+    return ui->nameEdit->text();
 }
 
 QDate DialogAdd::dateOfBirth() const
 {
-    return m_dateOfBirth;
+    return QDate::fromString(ui->dateEdit->text(),"dd.MM.yyyy");
 }
 
 QString DialogAdd::favouriteGenre() const
 {
-    return m_favouriteGenre;
+    return ui->genreEdit->text();
 }

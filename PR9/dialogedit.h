@@ -18,7 +18,11 @@ public:
     explicit DialogEdit(QWidget *parent = nullptr);
     ~DialogEdit();
 
+    Player player() const;
+    void setPlayer(const Player &newPlayer);
 
+    int getIndex() const;
+    void setIndex(int newIndex);
 
     QString name() const;
     void setName(const QString &newName);
@@ -35,6 +39,7 @@ private:
     QString m_name;
     QDate m_dateOfBirth;
     QString m_favouriteGenre;
+    int m_index;
 };
 
 #endif // DIALOGEDIT_H

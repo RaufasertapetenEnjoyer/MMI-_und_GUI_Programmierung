@@ -19,7 +19,8 @@ SOURCES += \
     playerdatabase.cpp \
     playertablemodel.cpp \
     playertablemodelalt.cpp \
-    test.cpp
+    test.cpp \
+    userlistmodel.cpp
 
 HEADERS += \
     dialogadd.h \
@@ -31,7 +32,8 @@ HEADERS += \
     playerdatabase.h \
     playertablemodel.h \
     playertablemodelalt.h \
-    test.h
+    test.h \
+    userlistmodel.h
 
 FORMS += \
     dialogadd.ui \
