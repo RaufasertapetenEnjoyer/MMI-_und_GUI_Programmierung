@@ -3,6 +3,7 @@
 #include "QFileDialog"
 #include "QUrl"
 #include "QDebug"
+#include "imagefade.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -27,11 +28,6 @@ bool MainWindow::canLoadFiles()
 }
 
 void MainWindow::updateProgressBar()
-{
-
-}
-
-void MainWindow::saveImage(QImage image)
 {
 
 }
@@ -89,13 +85,25 @@ void MainWindow::on_pushChooseDirectory_clicked()
 void MainWindow::on_buttonGenerate_clicked()
 {
     if (compareFiles() && canLoadFiles()) {
-
+        ImageFade imagefade(m_source, m_target, m_directory, m_steps);
+        imagefade.start();
+        imagefade.wait();
     }
 }
 
+void MainWindow::on_spinBoxSteps_textChanged(const QString &arg1)
+{
+    bool ok;
+    int steps = arg1.toInt(&ok);
+
+    if(ok){
+        m_steps = steps;
+    }else{
+        qDebug() << "Irgendwas ist schiefgelaufen";
+    }
+}
 
 void MainWindow::on_spinBoxSteps_valueChanged(int arg1)
 {
     m_steps = arg1;
 }
-

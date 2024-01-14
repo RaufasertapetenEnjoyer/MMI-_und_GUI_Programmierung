@@ -38,6 +38,8 @@ private slots:
 
     void on_spinBoxSteps_valueChanged(int arg1);
 
+    void on_spinBoxSteps_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 
