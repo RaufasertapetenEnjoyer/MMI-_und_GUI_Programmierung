@@ -6,6 +6,9 @@
 #include "QImage"
 #include "QUrl"
 #include "QDebug"
+#include "QThread"
+#include "QString"
+#include "imagefade.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,9 +26,13 @@ public:
 
     bool canLoadFiles();
 
-    void updateProgressBar();
+    void updateProgressBar(qreal percentage);
 
     void saveImage(QImage image);
+
+    void setRunning(bool running);
+
+    void displayMessage(QString message);
 
 private slots:
     void on_buttonChooseSource_clicked();
@@ -43,9 +50,13 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    QThread* m_thread;
+    ImageFade* m_fader;
+
     QImage m_source;
     QImage m_target;
     QUrl m_directory;
     int m_steps;
+    bool m_running;
 };
 #endif // MAINWINDOW_H

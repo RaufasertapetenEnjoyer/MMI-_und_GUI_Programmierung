@@ -10,10 +10,32 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    ui->morphingProgressBar->setRange(0, 100);
+    ui->morphingProgressBar->setValue(0);
+
+    m_thread = new QThread();
+    m_fader = new ImageFade();
+    m_running = false;
+
+    connect(m_fader, &ImageFade::updateBar, this, &MainWindow::updateProgressBar);
+    connect(m_fader, &ImageFade::stillRunning, this, &MainWindow::setRunning);
+    connect(m_fader, &ImageFade::sendMessage, this, &MainWindow::displayMessage);
+
+    m_fader->moveToThread(m_thread);
+    m_thread->start();
+
 }
 
 MainWindow::~MainWindow()
 {
+    m_thread->requestInterruption();
+    m_thread->quit();
+    m_thread->wait();
+    delete m_thread;
+    delete m_fader;
+
+
     delete ui;
 }
 
@@ -27,9 +49,19 @@ bool MainWindow::canLoadFiles()
     return true;
 }
 
-void MainWindow::updateProgressBar()
+void MainWindow::updateProgressBar(qreal percentage)
 {
+    ui->morphingProgressBar->setValue(percentage);
+}
 
+void MainWindow::setRunning(bool running)
+{
+    m_running = running;
+}
+
+void MainWindow::displayMessage(QString message)
+{
+    ui->outputText->appendPlainText(message);
 }
 
 void MainWindow::on_buttonChooseSource_clicked()
@@ -84,11 +116,20 @@ void MainWindow::on_pushChooseDirectory_clicked()
 
 void MainWindow::on_buttonGenerate_clicked()
 {
-    if (compareFiles() && canLoadFiles()) {
-        ImageFade imagefade(m_source, m_target, m_directory, m_steps);
-        imagefade.start();
-        imagefade.wait();
+    if (!m_running) {
+        ui->outputText->appendPlainText("Program started.");
+        if (compareFiles() && canLoadFiles()) {
+            QMetaObject::invokeMethod(m_fader, "run", Q_ARG(const QImage&, m_source), Q_ARG(const QImage&, m_target), Q_ARG(const QUrl&, m_directory),  Q_ARG(int,  m_steps));
+        } else {
+            ui->outputText->appendPlainText("Bilder konnten nicht geladen werden oder sind nicht kompatibel.");
+        }
+    } else {
+        ui->outputText->appendPlainText("Program aborted.");
+        m_thread->requestInterruption();
+        m_thread->quit();
+        m_running = false;
     }
+
 }
 
 void MainWindow::on_spinBoxSteps_textChanged(const QString &arg1)
@@ -99,7 +140,7 @@ void MainWindow::on_spinBoxSteps_textChanged(const QString &arg1)
     if(ok){
         m_steps = steps;
     }else{
-        qDebug() << "Irgendwas ist schiefgelaufen";
+        ui->outputText->appendPlainText("Irgendwas ist schiefgelaufen");
     }
 }
 

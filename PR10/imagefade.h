@@ -1,4 +1,3 @@
-
 #ifndef IMAGEFADE_H
 #define IMAGEFADE_H
 
@@ -7,45 +6,56 @@
 #include "QUrl"
 #include "QDir"
 #include "QPainter"
+#include "QString"
 
+#include <QObject>
 
-
-class ImageFade : public QThread
+class ImageFade : public QObject
 {
 
-private:
-    QImage m_source;
-    QImage m_target;
-    QUrl m_destination;
-    int m_steps;
+Q_OBJECT
 
-public:    
-    ImageFade(const QImage& source, const QImage& target, const QUrl& dest, int steps) : m_source(source), m_target(target), m_destination(dest){
-        m_steps = steps;
-    };
+signals:
+    void updateBar(qreal percentage);
+    void stillRunning(bool running);
+    void sendMessage(QString message);
 
-protected:
-    void run() override{
-        for (int i = 0; i < m_steps; ++i) {
-            QDir outputDir(m_destination.toLocalFile());
+public:
+
+    explicit ImageFade(QObject *parent = nullptr);
+
+    Q_INVOKABLE void run(const QImage& source, const QImage& target, const QUrl& dest, int steps) {
+        emit updateBar(0);
+
+        emit stillRunning(true);
+        qDebug() << "Running thread" << QThread::currentThreadId();
+        for (int i = 0; i < steps; ++i) {
+            QDir outputDir(dest.toLocalFile());
             if(!outputDir.exists()){
                 qDebug() << "Directory doesn't exists!";
             }
 
-            qreal alpha = static_cast<qreal>(i) / m_steps;
+            qreal alpha = static_cast<qreal>(i) / steps;
 
-            QImage blendedImage(m_source.size(), QImage::Format_A2RGB30_Premultiplied);
+            QImage blendedImage(source.size(), QImage::Format_A2RGB30_Premultiplied);
             QPainter painter(&blendedImage);
             painter.setOpacity(1.0 - alpha);
-            painter.drawImage(0, 0, m_source);
+            painter.drawImage(0, 0, source);
             painter.setOpacity(alpha);
-            painter.drawImage(0, 0, m_target);
+            painter.drawImage(0, 0, target);
             painter.end();
 
             QString fileName = QString("blend_step%1.png").arg(i);
             blendedImage.save(outputDir.filePath(fileName));
+            emit sendMessage("Image " + QString::number(i+1) + " of " + QString::number(steps) + " generated: " + fileName);
+            emit updateBar(alpha * 100);
+            qDebug() << alpha;
             QThread::sleep(5);
         }
+
+        emit updateBar(100);
+        emit stillRunning(false);
+        emit sendMessage("Program ended successfully.");
     }
 };
 
